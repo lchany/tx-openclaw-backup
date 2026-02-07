@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1770352107071
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1770352116259
+    },
+    "proactive-agent-1-2-4": {
+      "version": "1.0.0",
+      "installedAt": 1770352125487
+    },
+    "elite-longterm-memory": {
+      "version": "1.2.2",
+      "installedAt": 1770369373516
+    },
+    "thecolony-heartbeat": {
+      "version": "1.0.0",
+      "installedAt": 1770369400775
+    },
+    "agent-directory": {
+      "version": "1.2.0",
+      "installedAt": 1770391280140
+    }
+  }
+}
