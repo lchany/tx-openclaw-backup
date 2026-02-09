@@ -1,0 +1,68 @@
+error: too many arguments for 'agent'. Expected 0 arguments but got 1.
+error: too many arguments for 'agent'. Expected 0 arguments but got 1.
+error: too many arguments for 'agent'. Expected 0 arguments but got 1.
+error: too many arguments for 'agent'. Expected 0 arguments but got 1.
+=== 等待双模型冲浪完成 ===
+最大等待时间: 3600秒
+✅ Claude 已完成 (Mon Feb  9 01:09:53 PM CST 2026)
+✅ MiniMax 已完成 (Mon Feb  9 01:09:53 PM CST 2026)
+✅ 双模型都已完成，触发会议...
+/home/lchych/clawd/scripts/moltbook-meeting-trigger.sh: line 47: trigger_meeting: command not found
+=== 等待双模型冲浪完成 ===
+最大等待时间: 3600秒
+✅ Claude 已完成 (Mon Feb  9 01:15:15 PM CST 2026)
+✅ MiniMax 已完成 (Mon Feb  9 01:15:15 PM CST 2026)
+✅ 双模型都已完成，触发会议...
+🌊 触发会议讨论 (状态: success)...
+✅ 会议讨论已触发
+=== Moltbook 双模型冲浪启动: Mon Feb  9 03:00:02 PM CST 2026 ===
+=== Moltbook 双模型冲浪: 2026-02-09-15 ===
+✅ 数据获取完成
+✅ MiniMax 完成
+✅ Claude 完成
+✅ 双模型冲浪完成
+✅ 双模型冲浪已启动，智能检测已启动
+=== 等待双模型冲浪完成 ===
+最大等待时间: 3600秒
+✅ Claude 已完成 (Mon Feb  9 03:00:02 PM CST 2026)
+✅ MiniMax 已完成 (Mon Feb  9 03:00:02 PM CST 2026)
+✅ 双模型都已完成，触发会议...
+🌊 触发会议讨论 (状态: success)...
+=== 等待双模型冲浪完成 ===
+最大等待时间: 3600秒
+✅ Claude 已完成 (Mon Feb  9 03:00:02 PM CST 2026)
+✅ MiniMax 已完成 (Mon Feb  9 03:00:02 PM CST 2026)
+✅ 双模型都已完成，触发会议...
+🌊 触发会议讨论 (状态: success)...
+✅ 会议讨论已触发
+✅ 会议讨论已触发
+=== Moltbook 双模型冲浪启动: Mon Feb  9 08:00:01 PM CST 2026 ===
+=== Moltbook 双模型冲浪: 2026-02-09-20 ===
+✅ 数据获取完成
+✅ Claude 完成
+✅ MiniMax 完成
+✅ 双模型冲浪完成
+✅ 双模型冲浪已启动，智能检测已启动
+=== 等待双模型冲浪完成 ===
+最大等待时间: 3600秒
+✅ Claude 已完成 (Mon Feb  9 08:00:01 PM CST 2026)
+=== 等待双模型冲浪完成 ===
+最大等待时间: 3600秒
+✅ MiniMax 已完成 (Mon Feb  9 08:00:01 PM CST 2026)
+✅ 双模型都已完成，触发会议...
+🌊 触发会议讨论 (状态: success)...
+✅ Claude 已完成 (Mon Feb  9 08:00:01 PM CST 2026)
+✅ MiniMax 已完成 (Mon Feb  9 08:00:01 PM CST 2026)
+✅ 双模型都已完成，触发会议...
+🌊 触发会议讨论 (状态: success)...
+✅ 会议讨论已触发
+✅ 会议讨论已触发
+=== Moltbook 双模型冲浪启动: Tue Feb 10 12:00:01 AM CST 2026 ===
+=== Moltbook 双模型冲浪: 2026-02-10-00 ===
+✅ 数据获取完成
+✅ Claude 完成
+✅ MiniMax 完成
+✅ 双模型冲浪完成
+✅ 双模型冲浪已启动，智能检测已启动
+✅ 会议上下文已保存，等待主 Agent 继续
+✅ 会议上下文已保存，等待主 Agent 继续

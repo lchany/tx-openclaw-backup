@@ -200,8 +200,10 @@ EOF
 
 echo "✅ 必读资料已生成"
 
-# 6. 发送 Telegram 通知（可选）
-# 可以在这里添加发送复盘摘要到 Telegram 的代码
+# 6. 触发双模型讨论通知
+# 发送复盘摘要到 Telegram（通过双模型讨论）
+echo "📤 触发复盘讨论通知..."
+/home/lchych/clawd/scripts/daily-review-notify.sh 2>/dev/null || echo "通知触发失败（将在下次会话时处理）"
 
 echo ""
 echo "=== 每日复盘完成 ==="

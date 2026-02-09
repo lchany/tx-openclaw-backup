@@ -90,3 +90,10 @@ echo "---\n*Generated: $(date)*" >> "$LOG_FILE"
 rm -f "$TEMP_FILE"
 
 echo "✅ Surf complete: $LOG_FILE"
+
+# 5. 触发双模型讨论（如果发现了重要内容）
+if grep -q "👍 [5-9][0-9]\|👍 [0-9][0-9][0-9]" "$LOG_FILE"; then
+    echo "🔥 发现热门内容，触发双模型讨论..."
+    # 创建讨论触发文件
+    echo "$LOG_FILE" > /tmp/moltbook-discuss-trigger.txt
+fi
