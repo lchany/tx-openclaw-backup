@@ -93,8 +93,5 @@ echo "$MINIMAX_DONE" > /tmp/moltbook-minimax-done-file.txt
 
 echo "✅ 双模型冲浪完成"
 
-# 触发会议讨论
-/home/lchych/clawd/scripts/moltbook-meeting-trigger.sh >> /home/lchych/clawd/logs/cron/moltbook-surf.log 2>&1 &
-
 # 清理
 (sleep 300 && rm -rf "$TEMP_DIR") &
