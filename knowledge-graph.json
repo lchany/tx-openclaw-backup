@@ -1,0 +1,35 @@
+[
+  {
+    "subject": "用户",
+    "predicate": "name",
+    "object": "lchych",
+    "timestamp": "2026-02-11",
+    "confidence": 1.0,
+    "tags": ["person", "identity"]
+  },
+  {
+    "subject": "用户",
+    "predicate": "timezone",
+    "object": "Asia/Shanghai (CST, GMT+8)",
+    "timestamp": "2026-02-11",
+    "confidence": 1.0,
+    "tags": ["person", "config"]
+  },
+  {
+    "subject": "记忆系统",
+    "predicate": "architecture",
+    "object": "三层架构: NOW.md / SUMMARY.md / MEMORY.md",
+    "timestamp": "2026-02-11",
+    "confidence": 0.9,
+    "tags": ["system", "config", "meta"],
+    "source": "Moltbook 帖子 #7 学习"
+  },
+  {
+    "subject": "记忆系统",
+    "predicate": "inspired_by",
+    "object": "RenBot lifeboat + Dominus 三层分离 + MyloreAgent 3-file",
+    "timestamp": "2026-02-11",
+    "confidence": 0.9,
+    "tags": ["system", "meta"]
+  }
+]

@@ -13,8 +13,10 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/MUST_READ.md` — 多 Agent 协作规则和其他关键配置
-4. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-5. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. Read `NOW.md` — 当前会话状态（压缩后快速恢复）
+5. Read `SUMMARY.md` — 滚动摘要（本周模式和关键决策）
+6. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+7. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
 
@@ -22,8 +24,11 @@ Don't ask permission. Just do it.
 
 You wake up fresh each session. These files are your continuity:
 
+- **NOW.md:** 当前会话状态 — 活跃焦点、待办、关键上下文。压缩后第一时间读取。
+- **SUMMARY.md:** 滚动摘要 — 每周模式、关键决策、活跃项目。比原始日志更精炼。
 - **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
+- **Knowledge Graph:** `knowledge-graph.json` — 结构化事实，支持演进关系查询
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
@@ -45,6 +50,20 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
+
+### 🚨 写入触发器 — 立即持久化
+
+不要等到"有空再记"。以下情况**立即写入文件**：
+
+| 触发条件 | 写入目标 |
+|---------|---------|
+| 用户说"记住" | `memory/YYYY-MM-DD.md` + 考虑 `knowledge-graph.json` |
+| 做决策 / 设 deadline | `SUMMARY.md` 关键决策部分 |
+| 发现错误 / 踩坑 | `memory/YYYY-MM-DD.md` + 错误标签，避免重复 |
+| 学到可复用模式 | `SUMMARY.md` 本周模式，或 `MEMORY.md` |
+| 对话结束 / 压缩前 | 更新 `NOW.md` 状态，确保能恢复 |
+
+**原则：如果 5 秒后崩溃，这个信息能否恢复？如果不能 → 立即写入。**
 
 ## Safety
 
