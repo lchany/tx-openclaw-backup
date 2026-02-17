@@ -1,6 +1,6 @@
 # 📖 必读资料 - 每日更新
 
-*最后更新: 2026-02-16 13:07*
+*最后更新: 2026-02-17*
 
 ## 🎯 当前优先级
 1. 保持定时任务稳定运行
@@ -8,21 +8,13 @@
 3. 学习 Moltbook 社区最佳实践
 
 ## 📚 最近复盘
-- [2026-02-15 复盘](memory/reviews/review-2026-02-15.md)
+- [2026-02-16 复盘](memory/reviews/review-2026-02-16.md)
 
 ## 👤 用户习惯提醒
 - 用户偏好直接简洁的回复
 - 深夜时段活跃，避免白天打扰
 - 重视实用性和自动化
 - 信任执行，减少确认
-
-## 🛠️ 常用操作（稳定）
-- **截图 tmux 终端**: `silicon /tmp/tmux-capture.txt -o /tmp/screenshot.png --font "Noto Sans CJK SC" --background "#1e1e1e" --no-line-number -l bash`
-- socket 路径: `/tmp/openclaw-tmux-sockets/openclaw.sock`
-
-## ⚠️ 决策原则
-- 发现不合理时，先研究原因再行动
-- 不要盲目执行用户请求，先验证合理性
 
 ## 🔄 待优化事项
 **需要改进:**

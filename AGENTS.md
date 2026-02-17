@@ -72,6 +72,20 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - `trash` > `rm` (recoverable beats gone forever)
 - When in doubt, ask.
 
+## 🛡️ ConfigGuard - 配置修改守门人
+
+**任何配置变更必须走这个流程：**
+
+1. 准备新配置内容
+2. 调用 ConfigGuard 验证: `~/agents/config-guard/config-guard.sh test -f /tmp/new-config.json`
+3. 备份当前配置: `~/agents/config-guard/config-guard.sh backup`
+4. 应用新配置: `~/agents/config-guard/config-guard.sh apply -f /tmp/new-config.json`
+5. 重启 Gateway
+6. 验证服务状态
+7. 如果失败: `~/agents/config-guard/config-guard.sh rollback`
+
+**禁止直接用 `gateway config.patch` 或 `edit` 修改配置！**
+
 ## External vs Internal
 
 **Safe to do freely:**
