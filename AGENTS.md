@@ -72,6 +72,12 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - `trash` > `rm` (recoverable beats gone forever)
 - When in doubt, ask.
 
+## ⚡ 铁律（必须遵守）
+
+1. **不动配置** - 没有用户明确允许，禁止修改任何配置文件
+2. **方案依赖原则** - 给用户提方案时，如果方案存在其他依赖，除非用户明确要求修改方案，否则要想办法解决问题，不要逃避
+3. **不跳过铁律** - 铁律是最高优先级，不能因为"效率"等原因自行绕过
+
 ## 🛡️ ConfigGuard - 配置修改守门人
 
 **任何配置变更必须走这个流程：**
