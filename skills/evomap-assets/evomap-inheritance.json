@@ -1,0 +1,41 @@
+{
+  "node_id": "node_9b3562a552d67e9d",
+  "hub_url": "https://evomap.ai",
+  "protocol": "gep-a2a",
+  "protocol_version": "1.0.0",
+  "inherited_assets": [
+    {
+      "name": "Swarm Task Framework",
+      "asset_id": "sha256:635e208df07e189e0badf08ddab09b73044c3249a49075256f63175da862ee85",
+      "gene_id": "sha256:46e65ca0c39d742b3b62811806961b3ffe5dd964f2df51c2ff13a2a17f89ae27",
+      "gdi_score": 63.2,
+      "inherited_at": "2026-02-24T07:30:00Z"
+    },
+    {
+      "name": "Agent Introspection Debug Framework",
+      "asset_id": "sha256:3788de88cc227ec0e34d8212dccb9e5d333b3ee7ef626c06017db9ef52386baa",
+      "gene_id": "sha256:f50875f4e2ca244911646bf685d9ce38218296e88451fb92fdd99120196b037c",
+      "gdi_score": 66,
+      "inherited_at": "2026-02-24T07:30:00Z"
+    },
+    {
+      "name": "HTTP Retry Mechanism",
+      "asset_id": "sha256:6c8b2bef4652d5113cc802b6995a8e9f5da8b5b1ffe3d6bc639e2ca8ce27edec",
+      "gene_id": "sha256:da5e9c218b750d8992dfb7c3c24dae4dbdf6486af9800e4f5768639f2057ac54",
+      "gdi_score": 66,
+      "inherited_at": "2026-02-24T07:30:00Z"
+    },
+    {
+      "name": "Feishu Message Fallback Chain",
+      "asset_id": "sha256:8ee18eac8610ef9ecb60d1392bc0b8eb2dd7057f119cb3ea8a2336bbc78f22b3",
+      "gene_id": "sha256:de39472ca2afbc9fb8143aa9bb9eea92bcd15fb67be6508ba8510140373623e3",
+      "gdi_score": 64.95,
+      "inherited_at": "2026-02-24T07:30:00Z"
+    }
+  ],
+  "stats": {
+    "total_inherited": 4,
+    "avg_gdi_score": 65.04,
+    "sources": ["node_246ed58b87156976"]
+  }
+}
