@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.26",
+    "lastTouchedAt": "2026-02-27T12:20:51.107Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-27T12:15:22.351Z",
+    "lastRunVersion": "2026.2.15",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "kimi": {
+        "baseUrl": "https://nexusacc.itssx.com/api/claude_code/cc_kimi25",
+        "apiKey": "sk-4ae56ce41046bda20ef11b4ea2b908da30b770c6ad858371",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "minimax": {
+        "baseUrl": "https://nexusacc.itssx.com/api/claude_code/cc_minimax21",
+        "apiKey": "sk-4ae56ce41046bda20ef11b4ea2b908da30b770c6ad858371",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.375
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "kimi/kimi-k2.5"
+      },
+      "workspace": "/home/lchych/clawd",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 2,
+      "subagents": {
+        "maxConcurrent": 2,
+        "model": "kimi/kimi-k2.5"
+      }
+    },
+    "list": [
+      {
+        "id": "nexus-kimi",
+        "workspace": "/home/lchych/clawd",
+        "model": "kimi/kimi-k2.5",
+        "subagents": {
+          "allowAgents": [
+            "github-scout",
+            "config-guard",
+            "demo-agent",
+            "minimax-m25",
+            "expert-architect",
+            "expert-engineer",
+            "expert-security",
+            "expert-devilsadvocate",
+            "expert-coordinator"
+          ]
+        }
+      },
+      {
+        "id": "minimax-m25",
+        "workspace": "/home/lchych/clawd",
+        "model": "minimax/MiniMax-M2.5"
+      },
+      {
+        "id": "github-scout",
+        "name": "GitHub Scout",
+        "workspace": "/home/lchych/agents/github-scout",
+        "model": {
+          "primary": "kimi/kimi-k2.5"
+        },
+        "identity": {
+          "name": "GitHub Scout",
+          "emoji": "🕵️"
+        }
+      },
+      {
+        "id": "config-guard",
+        "name": "ConfigGuard",
+        "workspace": "/home/lchych/agents/config-guard",
+        "model": {
+          "primary": "kimi/kimi-k2.5"
+        },
+        "identity": {
+          "name": "ConfigGuard",
+          "emoji": "🛡️"
+        }
+      },
+      {
+        "id": "demo-agent",
+        "name": "Demo Agent",
+        "workspace": "/home/lchych/agents/demo-agent",
+        "model": {
+          "primary": "kimi/kimi-k2.5"
+        },
+        "identity": {
+          "name": "Demo",
+          "emoji": "🧪"
+        }
+      },
+      {
+        "id": "expert-architect",
+        "name": "Architect Expert",
+        "workspace": "/home/lchych/agents/expert-architect",
+        "model": {
+          "primary": "kimi/kimi-k2.5"
+        },
+        "identity": {
+          "name": "Architect",
+          "emoji": "🏗️"
+        }
+      },
+      {
+        "id": "expert-engineer",
+        "name": "Engineer Expert",
+        "workspace": "/home/lchych/agents/expert-engineer",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "identity": {
+          "name": "Engineer",
+          "emoji": "🛠️"
+        }
+      },
+      {
+        "id": "expert-security",
+        "name": "Security Expert",
+        "workspace": "/home/lchych/agents/expert-security",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "identity": {
+          "name": "Security",
+          "emoji": "🔐"
+        }
+      },
+      {
+        "id": "expert-devilsadvocate",
+        "name": "Devils Advocate",
+        "workspace": "/home/lchych/agents/expert-devilsadvocate",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "identity": {
+          "name": "Devils Advocate",
+          "emoji": "👹"
+        }
+      },
+      {
+        "id": "expert-coordinator",
+        "name": "Coordinator",
+        "workspace": "/home/lchych/agents/expert-coordinator",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "identity": {
+          "name": "Coordinator",
+          "emoji": "🎯"
+        }
+      }
+    ]
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "provider": "brave",
+        "apiKey": "BSACAqN3n2DlHcHTxjxPlu_XPi3nBk_",
+        "maxResults": 10,
+        "timeoutSeconds": 30
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "off",
+      "provider": "edge",
+      "edge": {
+        "enabled": true,
+        "voice": "zh-CN-XiaoxiaoNeural",
+        "lang": "zh-CN"
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "cron": {
+    "enabled": true
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8104939902:AAG_xvcBjipQ8SRVwdZ6aJ2YAWUFWSYxn4M",
+      "groupPolicy": "allowlist",
+      "streaming": "partial"
+    },
+    "feishu": {
+      "enabled": true,
+      "dmPolicy": "open",
+      "accounts": {
+        "default": {
+          "appId": "cli_a9114e52df785ced",
+          "appSecret": "LccP3FblUJmd0JdXkhxTfgQswYU6fb7I"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "undefined"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "controlUi": {
+      "allowedOrigins": [
+        "http://10.3.4.2:18789",
+        "http://localhost:18789"
+      ]
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "expert-panel": {
+        "enabled": true
+      },
+      "agent-council": {
+        "enabled": true
+      },
+      "self-improving-agent": {
+        "enabled": true
+      },
+      "async-task": {
+        "enabled": true
+      },
+      "claude-code-supervisor": {
+        "enabled": true
+      },
+      "self-evolve": {
+        "enabled": true
+      },
+      "elite-longterm-memory": {
+        "enabled": true
+      },
+      "proactive-agent": {
+        "enabled": true
+      },
+      "thecolony-heartbeat": {
+        "enabled": true
+      },
+      "hippocampus": {
+        "enabled": true
+      },
+      "supermemory": {
+        "enabled": true,
+        "apiKey": "sm_hNBbAwcP2hUZvVC9pzKBLv_gBSBbvgNhQmxaOOIPfoZDYevEWBAcYShzPjvkphXGfXsFMEyCgFVyWJQflqZYbnp"
+      },
+      "tavily-search": {
+        "enabled": true
+      },
+      "humanize-ai-text": {
+        "enabled": true
+      },
+      "evomap": {
+        "enabled": true
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "discord": {
+        "enabled": true
+      },
+      "feishu": {
+        "enabled": true
+      }
+    }
+  }
+}
