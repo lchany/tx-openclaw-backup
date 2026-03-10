@@ -1,10 +1,13 @@
 # Progress
 
 ## 2026-03-10
-- 已确认用户希望“删除横幅”，不是仅改文案。
-- 已定位横幅文本与发送函数：`buildResetSessionNoticeText()` / `sendResetSessionNotice()`。
-- 已备份 5 个相关 bundle 到 `backups/openclaw-reset-banner-20260310-0706/`。
-- 已将 5 个 bundle 中的 `sendResetSessionNotice()` 改为 no-op。
-- Gateway 已重启并恢复正常，当前运行 pid 为 `859950`，`RPC probe: ok`。
-- 已确认主 bundle 中 `sendResetSessionNotice()` 为 no-op，因此 `/new` 横幅不再发送。
-- 下一步：提交工作区中的补丁脚本与记录文件。
+- 已确认用户要求：卸载当前 office 并重新安装。
+- 已确认主实例健康，office profile 为半成品。
+- 已启动 rollback-monitor。
+- 已将旧 office 残留备份到 `/home/lchych/.openclaw/config-backups/openclaw-office-reinstall-20260310-085501/`。
+- 已执行 `openclaw --profile office uninstall --state --workspace --yes --non-interactive`。
+- 已清理旧的 `~/.openclaw/openclaw-office.json` sidecar。
+- 已用 remote mode 重建 office profile，并成功生成 `~/.openclaw-office/openclaw.json`。
+- 已补齐 workspace：`/home/lchych/.openclaw/workspace-office`，bootstrap 文件存在。
+- `openclaw --profile office status --all` 验证通过：Gateway 为 remote，指向 `ws://127.0.0.1:18789`，Agent bootstrap file 为 PRESENT。
+- 已关闭 rollback-monitor。

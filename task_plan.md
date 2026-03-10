@@ -1,18 +1,22 @@
 # Task Plan
 
 ## Goal
-删除 OpenClaw `/new` / `/reset` 后发送给用户的 `✅ New session started · model: ...` 横幅，保留正常的新会话问候。
+彻底卸载当前半成品的 OpenClaw office profile，并在不影响主 Gateway 的前提下重新安装为一个干净的 remote profile。
 
 ## Phases
-- [complete] 1. 定位实际生效的横幅发送逻辑与目标 bundle
-- [complete] 2. 备份相关 bundle 并应用补丁
-- [complete] 3. 重启 Gateway 并验证横幅发送逻辑已失效、Gateway 正常运行
-- [in_progress] 4. 在工作区保存可重打补丁并提交 git
+- [complete] 1. 盘点 office 现状、确认卸载范围与重装方案
+- [complete] 2. 备份 office 现有残留并执行卸载
+- [complete] 3. 重新初始化 office profile，连接到现有主 Gateway
+- [complete] 4. 验证 office profile 可用、记录结果并提交工作区变更
 
 ## Notes
-- 目标是删除用户可见横幅，不修改 `/new` 的核心重置能力。
-- 优先做最小改动，避免影响其他回复流程。
+- 未改动当前主实例 `~/.openclaw` 的运行状态，主 gateway 持续正常。
+- office 已改为单 gateway 方案下的 remote profile：连接 `ws://127.0.0.1:18789`。
+- 旧 office 残留已先备份再删除。
+- workspace 现已补齐，bootstrap 文件存在。
 
 ## Errors Encountered
 | Error | Attempt | Resolution |
 |---|---:|---|
+| `setup --mode remote --non-interactive` 要求显式风险确认并改走 onboarding | 1 | 改用 `openclaw --profile office onboard --non-interactive --accept-risk ...` |
+| `onboard` 输出误导，看起来像更新主配置 | 2 | 复查后确认主配置未变，真正生成的是 `~/.openclaw-office/openclaw.json` |
