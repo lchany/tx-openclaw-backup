@@ -26,3 +26,32 @@ When Brave rate-limits, fall back immediately to web_fetch or local docs instead
 - Related Files: .learnings/ERRORS.md
 
 ---
+## [ERR-20260310-002] openclaw_office_temp_process_killed
+
+**Logged**: 2026-03-10T10:06:50+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+OpenClaw Office temporary process on port 5180 was terminated, causing the browser to show `fail to fetch`.
+
+### Error
+```
+Exec failed (mellow-falcon, signal SIGTERM)
+```
+
+### Context
+- Office frontend was started via a background exec session with a 120s timeout.
+- After timeout, the session was killed and port 5180 stopped listening.
+- Gateway on 18789 remained healthy.
+
+### Suggested Fix
+Run OpenClaw Office as a persistent service (systemd user unit or equivalent) instead of a timeout-bound temporary exec session.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+- See Also: ERR-20260310-001
+
+---

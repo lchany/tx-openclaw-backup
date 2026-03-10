@@ -9,3 +9,5 @@
 - 本机 `http://127.0.0.1:5180` 返回 200，公网 `http://43.160.206.212:5180` 也返回 200。
 - HTML 标题为 `OpenClaw Office`，页面内注入 `window.__OPENCLAW_CONFIG__={"gatewayUrl":"/gateway-ws",...}`。
 - 对 `/gateway-ws` 发起 WebSocket 握手返回 `101 Switching Protocols`，说明浏览器到 Office 的同源代理可用。
+- 持久化方案：创建 `~/.config/systemd/user/openclaw-office.service`，使用 `npx -y @ww-ai-lab/openclaw-office --host 0.0.0.0 --port 5180 --gateway ws://127.0.0.1:18789` 作为 ExecStart。
+- `openclaw-office` 可自动从 `~/.openclaw/openclaw.json` 读取 gateway token，因此无需把 token 明文写入 systemd unit。
