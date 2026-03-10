@@ -1,16 +1,11 @@
 # Findings
 
 ## 2026-03-10
-- 主 OpenClaw 实例正常运行，Gateway 位于 `ws://127.0.0.1:18789`，RPC probe 正常。
-- `office` 不是独立 CLI 子命令，而是一个独立 profile（`openclaw --profile office ...`）。
-- 旧的 `office` profile 是半成品：`~/.openclaw-office/openclaw.json` 缺失，仅有 `identity/` 与 `memory/` 残留。
-- 卸载 `office` profile 的有效命令是：`openclaw --profile office uninstall --state --workspace --yes --non-interactive`。
-- 为避免脏状态影响重装，还需要清理旧 sidecar：`~/.openclaw/openclaw-office.json`。
-- 重装 office 的合理方式是保留现有主 Gateway，使用 remote mode 重新初始化 office profile，而不是再起第二个 gateway。
-- 可行的重装流程：
-  1. `openclaw --profile office onboard --non-interactive --accept-risk --mode remote --remote-url ws://127.0.0.1:18789 --remote-token <token> --skip-channels --skip-skills --skip-health --skip-ui --no-install-daemon`
-  2. `openclaw --profile office setup --workspace /home/lchych/.openclaw/workspace-office`
-- 重装完成后的关键文件：
-  - 配置：`~/.openclaw-office/openclaw.json`
-  - workspace：`~/.openclaw/workspace-office`
-  - sessions：`~/.openclaw-office/agents/main/sessions/`
+- `openclaw-office` 可通过 `npx -y @ww-ai-lab/openclaw-office` 运行，默认端口为 5180，默认 host 为 `0.0.0.0`。
+- 当前主机只有 8045 和 18789 在监听；5180 原先未启动。
+- `~/.openclaw-office/openclaw.json` 是 office profile 配置，不是 OpenClaw Office Web 前端的持久化入口配置。
+- OpenClaw Office README 说明其自身公开网页端口默认是 5180，连接上游 Gateway（默认 `ws://localhost:18789`）。
+- 通过 `npx` 启动后，OpenClaw Office 已成功监听 `0.0.0.0:5180`。
+- 本机 `http://127.0.0.1:5180` 返回 200，公网 `http://43.160.206.212:5180` 也返回 200。
+- HTML 标题为 `OpenClaw Office`，页面内注入 `window.__OPENCLAW_CONFIG__={"gatewayUrl":"/gateway-ws",...}`。
+- 对 `/gateway-ws` 发起 WebSocket 握手返回 `101 Switching Protocols`，说明浏览器到 Office 的同源代理可用。
