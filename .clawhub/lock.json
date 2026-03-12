@@ -7,7 +7,7 @@
     },
     "find-skills": {
       "version": "0.1.0",
-      "installedAt": 1770352116259
+      "installedAt": 1773328714096
     },
     "proactive-agent-1-2-4": {
       "version": "1.0.0",
@@ -48,6 +48,22 @@
     "supermemory": {
       "version": "1.0.0",
       "installedAt": 1771667047451
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1773328711081
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1773328712082
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1773328713123
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1773328716891
     }
   }
 }
