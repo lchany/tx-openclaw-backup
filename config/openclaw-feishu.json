@@ -12,14 +12,14 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "kimi": {
-        "baseUrl": "https://nexusacc.itssx.com/api/claude_code/cc_kimi25",
-        "apiKey": "sk-4ae56ce41046bda20ef11b4ea2b908da30b770c6ad858371",
-        "api": "anthropic-messages",
+      "gmncode": {
+        "baseUrl": "https://gmncode.cn/v1",
+        "apiKey": "sk-1f16c733c808099c3d7a10b7b77d9525301504e181bbd50d4affa109b875f15c",
+        "api": "openai-responses",
         "models": [
           {
-            "id": "kimi-k2.5",
-            "name": "Kimi K2.5",
+            "id": "gpt-5.4",
+            "name": "GPT-5.4",
             "reasoning": true,
             "input": [
               "text"
@@ -31,7 +31,7 @@
               "cacheWrite": 0
             },
             "contextWindow": 200000,
-            "maxTokens": 8192
+            "maxTokens": 128000
           }
         ]
       },
@@ -63,7 +63,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "kimi/kimi-k2.5"
+        "primary": "gmncode/gpt-5.4"
       },
       "workspace": "/home/lchych/clawd",
       "compaction": {
@@ -72,14 +72,14 @@
       "maxConcurrent": 2,
       "subagents": {
         "maxConcurrent": 2,
-        "model": "kimi/kimi-k2.5"
+        "model": "gmncode/gpt-5.4"
       }
     },
     "list": [
       {
         "id": "nexus-kimi",
         "workspace": "/home/lchych/clawd",
-        "model": "kimi/kimi-k2.5",
+        "model": "gmncode/gpt-5.4",
         "subagents": {
           "allowAgents": [
             "github-scout",
@@ -104,7 +104,7 @@
         "name": "GitHub Scout",
         "workspace": "/home/lchych/agents/github-scout",
         "model": {
-          "primary": "kimi/kimi-k2.5"
+          "primary": "gmncode/gpt-5.4"
         },
         "identity": {
           "name": "GitHub Scout",
@@ -116,7 +116,7 @@
         "name": "ConfigGuard",
         "workspace": "/home/lchych/agents/config-guard",
         "model": {
-          "primary": "kimi/kimi-k2.5"
+          "primary": "gmncode/gpt-5.4"
         },
         "identity": {
           "name": "ConfigGuard",
@@ -128,7 +128,7 @@
         "name": "Demo Agent",
         "workspace": "/home/lchych/agents/demo-agent",
         "model": {
-          "primary": "kimi/kimi-k2.5"
+          "primary": "gmncode/gpt-5.4"
         },
         "identity": {
           "name": "Demo",
@@ -140,7 +140,7 @@
         "name": "Architect Expert",
         "workspace": "/home/lchych/agents/expert-architect",
         "model": {
-          "primary": "kimi/kimi-k2.5"
+          "primary": "gmncode/gpt-5.4"
         },
         "identity": {
           "name": "Architect",
