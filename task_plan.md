@@ -1,24 +1,23 @@
 # Task Plan
 
 ## Goal
-在无界面 Linux 主机上启动 OpenClaw Office 前端，使其可通过公网访问 5180 端口查看 Office 画面，并验证连通性。
+在当前 AGENTS.md 体系项目中，增量接入 knowledge 模块：安装 knowledge-kb skill，创建 knowledge/ 模块目录与索引/流转机制，补根路由，不重构现有 memory 体系。
 
 ## Phases
-- [complete] 1. 确认 office profile 与 gateway 当前状态
-- [complete] 2. 确认 openclaw-office 可执行入口与当前监听端口
-- [complete] 3. 启动 OpenClaw Office 前端到 0.0.0.0:5180 并验证本机可访问
-- [complete] 4. 验证公网可访问并记录入口信息
-- [complete] 5. 持久化为 systemd user service 并验证稳定运行
-- [complete] 6. 记录结果并提交工作区变更
+- [complete] 1. 安装 knowledge-kb 到现有 skills 体系
+- [complete] 2. 创建 knowledge/ 模块目录与基础文件
+- [complete] 3. 更新根 AGENTS.md 的 knowledge 路由
+- [complete] 4. 验证结构与安装结果
+- [in_progress] 5. 记录结果并提交工作区变更
 
 ## Notes
-- 当前主 Gateway 正常运行在 18789。
-- OpenClaw Office 前端已持久化为 `systemd --user` 服务：`openclaw-office.service`。
-- 浏览器入口通过同源 `/gateway-ws` 代理连接上游 Gateway `ws://127.0.0.1:18789`。
-- 当前公网入口为 `http://43.160.206.212:5180`。
+- 用户已明确同意执行，并同意安装技能。
+- 采用增量接入，不改造现有 memory/ 与 knowledge-graph.json。
+- skill 目标路径：skills/knowledge-kb/
+- 已完成 skill 审计，结论为 ✅ SAFE TO INSTALL。
+- 已修复 knowledge-kb 对标准 `.agents/.claude` 路径的假设，使其兼容当前项目的根级 `skills/` 布局。
+- 当前主机缺少 ffmpeg/ffprobe，视频转写入口已接入但暂不具备执行条件。
 
 ## Errors Encountered
 | Error | Attempt | Resolution |
 |---|---:|---|
-| 5180 未监听，无法公网访问 Office 画面 | 1 | 启动 `npx -y @ww-ai-lab/openclaw-office --host 0.0.0.0 --port 5180 --gateway ws://127.0.0.1:18789 --token <token>` |
-| 临时 exec 进程被 SIGTERM 杀掉，浏览器报 `fail to fetch` | 2 | 改为 `systemd --user` 常驻服务 `openclaw-office.service` |

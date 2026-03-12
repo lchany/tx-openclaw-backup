@@ -1,17 +1,11 @@
 # Progress
 
-## 2026-03-10
-- 已确认用户要的是 OpenClaw Office 的公网前端画面，不是 gateway 端口。
-- 已确认 `openclaw-office --help` 可用，当前 5180 初始未监听，8045 不是 OpenClaw Office。
-- 之前用临时 exec 拉起 5180，后续因 SIGTERM 退出，导致页面 `fail to fetch`。
-- 已创建并启用 `systemd --user` 服务：`~/.config/systemd/user/openclaw-office.service`。
-- 当前服务状态：`active (running)`。
-- 已验证：
-  - `127.0.0.1:5180` → HTTP 200
-  - `43.160.206.212:5180` → HTTP 200
-  - `/gateway-ws` → WebSocket `101 Switching Protocols`
-- 当前 5180 已可从公网稳定打开 OpenClaw Office 页面。
-- 管理命令：
-  - `systemctl --user status openclaw-office.service`
-  - `systemctl --user restart openclaw-office.service`
-  - `journalctl --user -u openclaw-office.service -n 100 --no-pager`
+## 2026-03-13
+- 用户已确认执行 knowledge 模块接入，并授权安装 knowledge-kb。
+- 开始按当前 skills/ 约定安装 skill，并创建 knowledge/ 模块。
+
+- 已安装 `skills/knowledge-kb/`，并补齐 `knowledge/` 模块目录、索引入口与 inbox 流转目录。
+- 已完成 skill 安全审计，结论：`✅ SAFE TO INSTALL`。
+- 已修复 `video_ingest.py` 的项目根路径探测逻辑，使其兼容当前项目结构。
+- 已验证 `video_ingest.py --help` 可正常运行。
+- 检查到当前环境缺少 `ffmpeg` / `ffprobe`；因此视频转写链路待后续补依赖，但本次知识模块接入已完成主体结构。

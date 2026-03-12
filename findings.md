@@ -1,13 +1,12 @@
 # Findings
 
-## 2026-03-10
-- `openclaw-office` 可通过 `npx -y @ww-ai-lab/openclaw-office` 运行，默认端口为 5180，默认 host 为 `0.0.0.0`。
-- 当前主机只有 8045 和 18789 在监听；5180 原先未启动。
-- `~/.openclaw-office/openclaw.json` 是 office profile 配置，不是 OpenClaw Office Web 前端的持久化入口配置。
-- OpenClaw Office README 说明其自身公开网页端口默认是 5180，连接上游 Gateway（默认 `ws://localhost:18789`）。
-- 通过 `npx` 启动后，OpenClaw Office 已成功监听 `0.0.0.0:5180`。
-- 本机 `http://127.0.0.1:5180` 返回 200，公网 `http://43.160.206.212:5180` 也返回 200。
-- HTML 标题为 `OpenClaw Office`，页面内注入 `window.__OPENCLAW_CONFIG__={"gatewayUrl":"/gateway-ws",...}`。
-- 对 `/gateway-ws` 发起 WebSocket 握手返回 `101 Switching Protocols`，说明浏览器到 Office 的同源代理可用。
-- 持久化方案：创建 `~/.config/systemd/user/openclaw-office.service`，使用 `npx -y @ww-ai-lab/openclaw-office --host 0.0.0.0 --port 5180 --gateway ws://127.0.0.1:18789` 作为 ExecStart。
-- `openclaw-office` 可自动从 `~/.openclaw/openclaw.json` 读取 gateway token，因此无需把 token 明文写入 systemd unit。
+## 2026-03-13
+- 当前项目是 AGENTS.md 体系，已有自定义 skills/ 目录约定。
+- 现有知识相关基础主要是 memory/ 与 knowledge-graph.json，但没有独立 knowledge/ 模块。
+- 本次采用增量接入：knowledge/ 作为外部知识模块，与 memory/ 并列。
+
+- 已审计 `knowledge-kb`：来源 GitHub，仓库透明，代码文件少，未发现凭据窃取、越权写入、混淆代码或隐蔽外联。
+- 风险等级评估为中风险（仅因 `add-video` 需要可选外网 ASR 与本地媒体处理），结论为 `✅ SAFE TO INSTALL`。
+- 原仓库脚本默认假设安装在 `.agents/skills/` 或 `.claude/skills/`；为兼容当前项目的根级 `skills/` 布局，已补丁为自动探测项目根目录。
+- 当前 `python3 skills/knowledge-kb/scripts/video_ingest.py --help` 可正常运行，说明路径修复已生效。
+- 当前主机缺少 `ffmpeg` 与 `ffprobe`，因此 `add-video` 命令已安装但暂不可直接处理音视频；文本/URL 类知识接入与目录机制不受影响。

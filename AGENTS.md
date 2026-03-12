@@ -29,8 +29,18 @@ You wake up fresh each session. These files are your continuity:
 - **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
 - **Knowledge Graph:** `knowledge-graph.json` — 结构化事实，支持演进关系查询
+- **External Knowledge:** `knowledge/` — 外部资料知识模块，默认先读 `_index.md` 再按需打开全文
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
+
+### 📚 Knowledge Management
+
+- 检索外部知识 → 先读 `knowledge/_index.md`，再按需打开单条全文
+- 收录新知识 → 使用 `knowledge-kb` skill 或相应 ingest 流程
+- 手动文档入口 → `knowledge/inbox/manual/pending/`
+- 视频/音频素材入口 → `knowledge/inbox/video/raw/`
+- 新增或更新正式知识条目后 → 必须同步更新 `knowledge/_index.md`
+- `memory/` 记录会话与决策，`knowledge/` 记录外部资料；不要混用
 
 ### 🧠 MEMORY.md - Your Long-Term Memory
 
