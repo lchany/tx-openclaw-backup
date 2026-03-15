@@ -55,3 +55,31 @@ Run OpenClaw Office as a persistent service (systemd user unit or equivalent) in
 - See Also: ERR-20260310-001
 
 ---
+## [ERR-20260315-001] upgrade_sequence_misread
+
+**Logged**: 2026-03-15T18:26:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: config
+
+### Summary
+I treated the user's approval as consent to upgrade immediately, but the user wanted a minimal execution test first.
+
+### Error
+```
+Sequencing mistake: upgraded OpenClaw before running the requested pre-upgrade minimal execution test.
+```
+
+### Context
+- User wanted: minimal execution test first, then upgrade if OK.
+- I had already started and completed `openclaw update`, upgrading from 2026.2.26 to 2026.3.13.
+- I later ran the minimal execution test and confirmed exec worked, but the operation order was wrong.
+
+### Suggested Fix
+When the user specifies an order like "先测试，再升级", treat the test as a hard gate and do not interpret a generic approval as permission to skip the requested sequencing.
+
+### Metadata
+- Reproducible: yes
+- Related Files: .learnings/ERRORS.md
+
+---
